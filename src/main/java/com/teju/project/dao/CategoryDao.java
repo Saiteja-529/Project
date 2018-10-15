@@ -1,7 +1,6 @@
 package com.teju.project.dao;
 
 import java.util.List;
-
 import com.teju.project.pojo.Category;
 
 public interface CategoryDao

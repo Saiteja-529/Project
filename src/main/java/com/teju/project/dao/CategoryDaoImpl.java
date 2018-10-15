@@ -3,19 +3,14 @@ package com.teju.project.dao;
 
 
 import java.util.List;
-
-import javax.transaction.Transaction;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
 import com.teju.project.pojo.Category;
 
-import javassist.bytecode.stackmap.BasicBlock.Catch;
 
 @Component
 @Repository

@@ -14,6 +14,10 @@
 
 
 
+<div class>
+<p class="bg-dark"><img src="resources/Products12.png" class="mx-auto d-block" alt="all" width="900" height="120"></p>
+
+</div>
 
 
 
@@ -23,8 +27,9 @@
 
 
 
-  
-<table class="table">
+<div class>  
+<table class="table table-dark table-striped">
+
  <thead>
    <tr>
      <th scope="col">Product Id</th>
@@ -38,15 +43,16 @@
  <tbody>
    <jstl:forEach items="${proinfo}" var="p">
    <tr class="primary">
-      <td>${p.productId}</td>
-     <td>${p.productName}</td>
-     <td>${p.productPrice}</td>
+      <td><h1>${p.productId}</h1></td>
+     <td><h1>${p.productName}</h1></td>
+     <td><h1>${p.productPrice}<h1></h1></td>
       
     
-      <td><a href="viewdetails?proid=${p.productId}"><img src="resources/${p.productId}.jpg" /></a></td>
+      <td><a href="viewdetails?proid=${p.productId}"><img src="resources/${p.productId}.jpg" width="304" height="236"/></a></td>
     
    </tr>
    </jstl:forEach>
+   </div>
 </tbody>
 </table>
 

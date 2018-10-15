@@ -11,25 +11,50 @@
 </head>
 <body>
 
+<div class>
+<img src="resources/productsimg.jpg" alt="a" width="1800" height="120">
+
+</div>
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
-  <a class="navbar-brand" href="user">PRODUCTS</a>
+ <div class="row ">
   
+  <div class>
+  <a class="navbar-brand" href="user"><h1><p class="text-primary">PRODUCTS</p></h1></a>
+</div>
+
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="Register">REGISTER</a>
-    </li>
+    <div class="col-sm-6">
+      <a class="nav-link" href="Register"><img src="resources/register2.jpg" alt="a" width="120" height="70"></a>
+   </div> </li>
+   
     <li class="nav-item">
-      <a class="nav-link" href="Login">LOGIN</a>
-    </li>
+     <div class="col-sm-6">
+      <a class="nav-link" href="Login"><img src="resources/login.jpg" class="rounded-circle" alt="a" width="120" height="80"></a>
+    </div></li>
      </li>
+     
+    
     <li class="nav-item">
-      <a class="nav-link" href="perform_logout">LOGOUT</a>
-    </li>    
+    <div class="col-sm-12">
+      <a class="nav-link" href="perform_logout"><img src="resources/logout.jpg" class="rounded-circle" alt="a" width="120" height="80"></a>
+    </div></li>  
+      
     <li class="nav-item">
-      <a class="nav-link" href="ViewCart">CART</a>
-    </li>                                                        
+    <div class="col-sm-12">
+      <a class="nav-link" href="ViewCart"> <img src="resources/cart.png" class="float-right" alt="a" width="120" height="80"></a>
+    </div></li> 
+    
+    <li class="nav-item">
+    <div class="col-sm-12">
+      <h1><p class="text-danger">contact us: 7901277457  <br><t><t><t> <button type="button" class="btn btn-primary">fb</button> <t> <button type="button" class="btn btn-danger">In</button> <t> <button type="button" class="btn btn-warning">WA</button></p></h1>
+    </div></li> 
+    
+ 
+                                                      
   </ul>
 </nav>
 

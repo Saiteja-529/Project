@@ -48,6 +48,47 @@ productPrice:<br>
                                    </div>
                                </div>
 
+supplierName:<br>
+                               <div class="form-group">
+                                   <div class="input-group mb-2">
+                                       <div class="input-group-prepend">
+                                           <div class="input-group-text"></div>
+                                       </div>
+
+                                       <st:input path="supplierName"  placeholder="supplierName" />
+                                   </div>
+                               </div>
+productDescription:<br>
+                               <div class="form-group">
+                                   <div class="input-group mb-2">
+                                       <div class="input-group-prepend">
+                                           <div class="input-group-text"></div>
+                                       </div>
+
+                                       <st:input path="productDescription"  placeholder="productDescription" />
+                                   </div>
+                               </div>   
+
+stock:<br>
+                               <div class="form-group">
+                                   <div class="input-group mb-2">
+                                       <div class="input-group-prepend">
+                                           <div class="input-group-text"></div>
+                                       </div>
+
+                                       <st:input path="stock"  placeholder="stock" />
+                                   </div>
+                               </div>   
+                                                      
+ category:<br> 
+           <st:select path="category">
+               <jstl:forEach items="${catinfo}" var="c">
+               <option value="${c.catName }">${c.catName }
+              </option>
+              </jstl:forEach>jstl:forEach>
+           
+           </st:select>  
+     <br>                                                                  
 productImg:<br>
                                <div class="form-group">
                                    <div class="input-group mb-2">
@@ -59,12 +100,17 @@ productImg:<br>
                                    </div>
                                </div>
 
-                               <div class="text-center">
+
+                  
+                                      
+ 
+                    <div class="text-center">
                                    <input type="submit"  value="save product"  class="bg-warning text-white">
                                </div>
                            </div>
 
                        </div>
+                          
                    </st:form>
                    <!--Form with header-->
 
@@ -72,6 +118,13 @@ productImg:<br>
                </div>
     </div>
 </div>
+
+
+<div class="container">
+<img src="resources/products12.jpg" alt="a" width="1800" height="120">
+
+</div>
+
 <div>
 <table class="table">
  <thead>

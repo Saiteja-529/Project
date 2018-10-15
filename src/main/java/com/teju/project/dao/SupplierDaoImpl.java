@@ -1,16 +1,12 @@
 package com.teju.project.dao;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
-import com.teju.project.pojo.Category;
-import com.teju.project.pojo.Product;
 import com.teju.project.pojo.Supplier;
 @Component
 @Repository

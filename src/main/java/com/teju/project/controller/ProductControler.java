@@ -4,9 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,25 +13,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.teju.project.dao.CategoryDao;
 import com.teju.project.dao.ProductDao;
-import com.teju.project.pojo.Category;
 import com.teju.project.pojo.Product;
 @Controller
 public class ProductControler 
 {
 	@Autowired
-	ProductDao pd;
-			   
+	ProductDao productDao;
+	@Autowired
+	CategoryDao categoryDao;		   
 			    @RequestMapping("/product")
 
-			    public ModelAndView m2()
+			    public ModelAndView showProduct()
 			    {
-			        ModelAndView mv2=new ModelAndView("showproduct","prod",new Product());
-			        List allproducts=pd.getAllProducts();
-			        mv2.addObject("proinfo", allproducts);
-			        return mv2;
+			        ModelAndView modelandview=new ModelAndView("showproduct","prod",new Product());
+			        List allproducts=productDao.getAllProducts();
+			        modelandview.addObject("proinfo", allproducts);
+			        List allcategories=categoryDao.getAll();
+			        modelandview.addObject("catinfo", allcategories);
+			        
+			        return modelandview;
+			        
 			    }
 			    
 			    
@@ -49,28 +50,28 @@ public class ProductControler
 			    	   byte b[]=proImg.getBytes();
 			    	   bos.write(b);
 			    	   bos.close();
-			    	   pd.insert(pro);
-			    	   List allproducts=pd.getAllProducts();
-			        ModelAndView mv=new ModelAndView("showproduct","proinfo",allproducts);
-			        return mv;
+			    	   productDao.insert(pro);
+			    	   List allproducts=productDao.getAllProducts();
+			        ModelAndView modelandview=new ModelAndView("showproduct","proinfo",allproducts);
+			        return modelandview;
 			        }
 			    
 			    @RequestMapping("/deletepro")
 			    public ModelAndView deleteProduct(@RequestParam("proid") int productId)
 			    { 
-			    	pd.delete(productId);
-			    	List allproducts=pd.getAllProducts();
-			    	 ModelAndView mv=new ModelAndView("showproduct","prod",new Product());
-			    	 mv.addObject("proinfo", allproducts);
-					return mv;
+			    	productDao.delete(productId);
+			    	List allproducts=productDao.getAllProducts();
+			    	 ModelAndView modelandview=new ModelAndView("showproduct","prod",new Product());
+			    	 modelandview.addObject("proinfo", allproducts);
+					return modelandview;
 			    }
 			    @RequestMapping("/editpro")
-			    public ModelAndView editpro(@RequestParam("proid") int productId)
+			    public ModelAndView editproduct(@RequestParam("proid") int productId)
 			    { 
-			    	Product product=pd.editProduct(productId);
-			    	List allproducts=pd.getAllProducts();
-			    	 ModelAndView mv=new ModelAndView("showproduct","prod", product);
-			    	 mv.addObject("catinfo", allproducts);
-					return mv;
+			    	Product product=productDao.editProduct(productId);
+			    	List allproducts=productDao.getAllProducts();
+			    	 ModelAndView modelandview=new ModelAndView("showproduct","prod", product);
+			    	 modelandview.addObject("catinfo", allproducts);
+					return modelandview;
 			    }
 }

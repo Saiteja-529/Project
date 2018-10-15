@@ -5,29 +5,27 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.teju.project.dao.ProductDao;
-import com.teju.project.pojo.Category;
-import com.teju.project.pojo.Product;
+
+
 
 @Controller
 public class HomeControler
 {
  @Autowired
-  ProductDao pd;	
+  ProductDao productDao;	
 
 	  @RequestMapping("/user")
-	  public ModelAndView m1()
+	  public ModelAndView getProducts()
 	  {
-		  List allproducts=pd.getAllProducts();
-		  ModelAndView mv=new ModelAndView("user","proinfo",allproducts);
-		  return mv;
+		  List allproducts=productDao.getAllProducts();
+		  ModelAndView modelandview=new ModelAndView("user","proinfo",allproducts);
+		  return modelandview;
 	  }
 
 @RequestMapping("/administrator")
-String m2()
+String admin()
 {
 	  return "administrator";
 } 

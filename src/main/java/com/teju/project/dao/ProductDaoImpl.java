@@ -1,23 +1,21 @@
 package com.teju.project.dao;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
-import com.teju.project.pojo.Category;
 import com.teju.project.pojo.Product;
+
 @Component
 @Repository
 public class ProductDaoImpl implements ProductDao
 {
 	
-		 @Autowired
-			   SessionFactory sessionFactory;
+@Autowired
+SessionFactory sessionFactory;
 			   	public boolean insert(Product product)
 				{
 			   		     Session session=sessionFactory.openSession();

@@ -3,7 +3,7 @@ package com.teju.project.pojo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+
 
 @Entity
 public class Authentication 

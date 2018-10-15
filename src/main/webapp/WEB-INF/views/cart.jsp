@@ -28,6 +28,7 @@
  </thead>
  <tbody>
    <jstl:forEach items="${cartinfo}" var="cr">
+   <jstl:set var="payableAmount" value="${payableAmount+cr.totalPrice}" />
    <tr class="primary">
       <td>${cr.cartId}</td>
      <td>${cr.productName}</td>
@@ -35,13 +36,15 @@
      <td>${cr.totalPrice}</td>
      <td>${cr.quantity}</td>
      <td>${cr.cartUser}</td>  
-    
-      
-   </tr>
-   </jstl:forEach>
+     </tr>
+ </jstl:forEach> 
 </tbody>
 </table>
 
+payableAmount=${payableAmount}
 
+<td><a href="cancelcart">cancel</td>
+ <td><a href="confirmcart">confirm</td>  
+  
 </body>
 </html>

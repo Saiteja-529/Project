@@ -1,9 +1,7 @@
 package com.teju.project.controller;
 
 import java.util.Collection;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.teju.project.dao.AuthenticationDao;
 import com.teju.project.dao.LoginDao;
 import com.teju.project.pojo.Authentication;
+
 @Controller
 public class LoginController 
 {
 	@Autowired
-	LoginDao lg;
+	LoginDao loginDao;
 	@Autowired
-	AuthenticationDao ado;
+	AuthenticationDao authenticationDao;
 	
 	 @RequestMapping("/Login")
 	  public String login()
@@ -37,7 +35,7 @@ public class LoginController
 	  public ModelAndView checkLogin(@RequestParam("e")String userName,@RequestParam("p")String passWord  )
 	  {
 		
-		 lg.loginCheck(userName,passWord);
+		 loginDao.loginCheck(userName,passWord);
 		  return null;
 	  }
 	 @RequestMapping("/LoginError")
@@ -57,7 +55,7 @@ public class LoginController
       
          String userName = SecurityContextHolder.getContext().getAuthentication().getName();
       
-          Authentication  user = ado.getUser(userName);
+          Authentication  user = authenticationDao.getUser(userName);
           session.setAttribute("userName", user.getUserName());
           session.setAttribute("name", user.getPassWord());
           session.setAttribute("LoggedIn", "true");

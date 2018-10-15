@@ -22,7 +22,38 @@ public class Product
 		
 	@Transient	
 	private MultipartFile productImg;
-	
+	@Column
+	private String supplierName;
+	@Column
+	private String category;
+	@Column
+	private String productDescription;
+	@Column
+	private String stock;
+	public String getSupplierName() {
+		return supplierName;
+	}
+	public void setSupplierName(String supplierName) {
+		this.supplierName = supplierName;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getProductDescription() {
+		return productDescription;
+	}
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+	public String getStock() {
+		return stock;
+	}
+	public void setStock(String stock) {
+		this.stock = stock;
+	}
 	public MultipartFile getProductImg() {
 			return productImg;
 		}

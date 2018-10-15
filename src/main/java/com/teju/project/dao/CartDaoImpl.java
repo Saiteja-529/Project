@@ -1,15 +1,12 @@
 package com.teju.project.dao;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
-import com.teju.project.pojo.Authentication;
 import com.teju.project.pojo.Cart;
 import com.teju.project.pojo.Product;
 
@@ -41,10 +38,13 @@ public class CartDaoImpl implements CartDao
 	}
 
 	
-	public List viewCart() 
+	public List viewCart(String userName) 
 	{
+		
 		  Session session=sessionFactory.openSession();
-	        Query query=session.createQuery("from Cart");
+		  
+	        Query query=session.createQuery("from Cart where cartUser=:uname");
+	        query.setParameter("uname", userName);
 	        List cartList=query.list();
 	        session.close();
 	        return cartList;

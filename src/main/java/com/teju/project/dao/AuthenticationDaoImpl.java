@@ -6,7 +6,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
 import com.teju.project.pojo.Authentication;
 @Component
 @Repository
@@ -36,8 +35,8 @@ public class AuthenticationDaoImpl implements AuthenticationDao
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery(hql);
 		query.setParameter("uname", userName);
-		Authentication au=(Authentication)query.uniqueResult();
-		return au;
+		Authentication authentication=(Authentication)query.uniqueResult();
+		return authentication;
 	}
 
 }

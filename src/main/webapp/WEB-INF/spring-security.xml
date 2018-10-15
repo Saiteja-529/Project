@@ -28,7 +28,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 
 <security:form-login login-page="/Login" default-target-url="/" login-processing-url="/checklogin" authentication-failure-url="/LoginError" authentication-success-forward-url="/login_session_attributes" />
 
-<security:logout logout-url="/perform_logout" invalidate-session="true" logout-success-url="/home.jsp" />
+<security:logout logout-url="/perform_logout" invalidate-session="true" logout-success-url="/home" />
 
 <security:csrf disabled="true" />
 
